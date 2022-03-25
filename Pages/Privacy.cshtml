@@ -1,0 +1,37 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+<form action="" method="post">
+    @Html.TextBox("aaaa")
+    @Html.ListBox("listbox1", new MultiSelectList(new string[] { "Choose1", "Choose2", "Choose3", "Choose4" }),
+                new { @class = "form-control" })
+    @Html.DropDownList("DropDownList1", new SelectList(new string[] { "Choose1", "Choose2", "Choose3", "Choose4" }),
+                new { @class = "form-control" })
+    @Html.RadioButton("myRadiobutton", "val1")
+    @Html.Label("val1")
+    @Html.RadioButton("myRadiobutton", "val2")
+    @Html.Label("val2")
+    <input type="submit" value="принять" />
+</form>
+
+@if (HttpContext.Request.Method == "POST")
+{
+    <p>
+        @Request.Form["aaaa"]
+    </p>
+    <p>
+        @Request.Form["listbox1"]
+    </p>
+    <p>
+        @Request.Form["DropDownList1"]
+    </p>
+    <p>
+        @Request.Form["myRadiobutton"]
+    </p>
+    
+    
+    
+}
